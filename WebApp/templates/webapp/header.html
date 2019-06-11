@@ -3,8 +3,7 @@
 
 <head>
     <title>Welcome</title>
-
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     {% load staticfiles %}
     <link rel="shortcut icon" href="{% static 'webapp/img/favicon.ico' %}" type="image/x-icon" />
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -95,7 +94,7 @@ body {
 			    <a class="active" href='/'><i class="fa fa-fw fa-home"></i>Home</a>
 				<a href='/admin/'>Admin</a>
 				<a href='/blog/'><i class="fa fa-book" ></i>Blog</a>
-                <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+                <a href="/chat/"><i class="fa fa-fw fa-search"></i> Chat</a>
              {% if user.is_authenticated %}
                 <a href='/logout/'><i class="fa fa-sign-out"></i>Logout</a>
                   <a href='/profile/'><i class="fa fa-fw fa-user"></i>Profile</a>
@@ -132,10 +131,10 @@ body {
         <div class="text-center center-block">
             <p class="txt-railway">shekar neo</p>
             <br />
-                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:shekaransd@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
 </div>
     <hr>
 </div>

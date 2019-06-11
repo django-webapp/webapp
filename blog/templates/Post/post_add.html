@@ -1,5 +1,11 @@
+<html>
 {% extends 'webapp/header.html' %}
+<head>
+{{ form.media }}
 {% load crispy_forms_tags %}
+{% load staticfiles %}
+</head>
+<body>
 {% block content %}
     <h2>Hello {{ user.username }}</h2>
         <br>
@@ -16,3 +22,5 @@
     </form>
 
 {% endblock %}
+</body>
+</html>

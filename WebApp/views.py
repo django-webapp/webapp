@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 #create your views here
 
@@ -67,3 +68,10 @@ def profile_update(request):
     return render(request,
                   'registration/profile_update.html', context)
 
+
+def user_list(request):
+    registered_users = [str(user) for user in User.objects.all()]
+    return render(request,
+                  template_name='webapp/home.html',
+                  context={'registered_users': registered_users}
+                  )

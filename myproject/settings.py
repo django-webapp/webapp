@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    #'channels_presence',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'tinymce',
     'crispy_forms',
-
+    'chat',
 ]
 
 
@@ -75,8 +77,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+#WSGI_APPLICATION = 'myproject.wsgi.application'
 
+ASGI_APPLICATION = 'myproject.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -169,3 +172,16 @@ TINYMCE_DEFAULT_CONFIG = {
 #crispy_form settings
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+#djnago channels
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],
+        },
+        'ROUTING': 'myproject.routing.channel_routing',
+    }
+}

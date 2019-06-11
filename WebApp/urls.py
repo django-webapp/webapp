@@ -29,7 +29,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("profile/", views.profile, name="profile"),
     path("profile_update/", views.profile_update, name="profile_update"),
-    #path("blog/", views.blog_post, name = "blog")
+    path("user_list/", views.user_list, name = "users")
 
 ]
 

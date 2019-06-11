@@ -23,6 +23,7 @@ urlpatterns = [
     path('blog/add', views.add_post, name="add_post"),
     path('blog/', views.blog_post, name="Post"),
     path('blog/<int:pk>/', PostDetailView.as_view(), name="post-detail"),
+    path('tinymce/', include('tinymce.urls')),
     #path('blog/<int:pk>/delete/', PostDeleteView.as_view(), name="post-delete"),
 
 ]

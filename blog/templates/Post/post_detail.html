@@ -5,11 +5,12 @@
 
 {% block content %}
 <div>
-<H2>{{ object.title }}</H2>
+<H2>Post Title: {{ object.title }}</H2>
+<h5>Author: {{ object.author }}</h5>
     </div>
     <div>
-<p>{{ object.created_date }}</p>
-<p>{{ object.published_date }}</p>
+<p>Create Date- {{ object.created_date }}</p>
+<p>Published Date- {{ object.published_date }}</p>
     </div>
     <h2>Post-Content </h2><p> {{ object.content | safe}}</h2>
 <br><br>

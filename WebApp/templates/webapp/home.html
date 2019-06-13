@@ -1,13 +1,10 @@
-    {% extends "webapp/header.html" %}
+{% extends 'webapp/header.html' %}
 
-    {% block content %}
-
+{% block content %}
+    <br>
     <center>
-      <h2> welcome</h2>
-        {% for user in registered_users %}
-        <p>  {{ user }}</p>
-        {% endfor %}
-    <p> this website is WIP hosted by shekar neo </p>
-
+    <h2>welcome</h2>
+    <h4>{{ request.user }}</h4>
     </center>
-    {% endblock %}
+    <br>
+{% endblock %}

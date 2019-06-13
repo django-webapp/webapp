@@ -19,17 +19,16 @@ from . import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import blog_post
+from . views import HomeView
 
 urlpatterns = [
 
-    path('', views.index, name="index"),
+    path('', HomeView.as_view()),
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name="login"),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/log_out.html'), name="logout"),
     path("register/", views.register, name="register"),
     path("profile/", views.profile, name="profile"),
     path("profile_update/", views.profile_update, name="profile_update"),
-    path("user_list/", views.user_list, name = "users")
 
 ]
 

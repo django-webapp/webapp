@@ -6,8 +6,8 @@ from .models import Profile
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    first_name = forms.CharField(max_length=20)
-    last_name = forms.CharField(max_length=20)
+    first_name = forms.CharField(max_length=20, required=False)
+    last_name = forms.CharField(max_length=20, required=False)
 
     class Meta:
         model = User
@@ -16,8 +16,8 @@ class UserRegisterForm(UserCreationForm):
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
-    first_name = forms.CharField(max_length=20)
-    last_name = forms.CharField(max_length=20)
+    first_name = forms.CharField(max_length=20, required=False)
+    last_name = forms.CharField(max_length=20, required=False)
 
     class Meta:
         model = User

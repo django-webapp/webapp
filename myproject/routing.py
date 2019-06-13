@@ -1,12 +1,22 @@
+from django.conf.urls import url
+from channels.routing import ProtocolTypeRouter, URLRouter, ChannelNameRouter
 from channels.auth import AuthMiddlewareStack
-from channels.routing import ProtocolTypeRouter, URLRouter
-import chat.routing
+from channels.security.websocket import AllowedHostsOriginValidator, OriginValidator
 
+from chat.consumers import ChatConsumer, TaskConsumer
 application = ProtocolTypeRouter({
-    # (http->django views is added by default)
-    'websocket': AuthMiddlewareStack(
-        URLRouter(
-            chat.routing.websocket_urlpatterns
-        )
+    # Websocket chat handler
+    'websocket': AllowedHostsOriginValidator(
+        AuthMiddlewareStack(
+            URLRouter(
+                [
+                    #url(r"chat/", ChatConsumer, name='chat'),
+                    url(r"messages/(?P<username>[\w.@+-]+)/$", ChatConsumer, name='chat')
+                ]
+            )
+        ),
     ),
+    'channel': ChannelNameRouter({
+        'task': TaskConsumer
+    })
 })

@@ -4,12 +4,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.views.generic import TemplateView
+from WebApp.userlist import get_all_logged_in_users
+#from django.views.generic import TemplateView
 
-
-class HomeView(TemplateView):
-    template_name = "webapp/home.html"
 
 
 app_name = 'WebApp'
@@ -71,8 +68,7 @@ def profile_update(request):
 
 
 def user_list(request):
-    registered_users = [str(user) for user in User.objects.all()]
-    return render(request,
-                  template_name='webapp/../chat/templates/chat/home.html',
-                  context={'registered_users': registered_users}
-                  )
+    return render(request=request,
+                  template_name='webapp/home.html',
+                  context={'users': get_all_logged_in_users}
+    )

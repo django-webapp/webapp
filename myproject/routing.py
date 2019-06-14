@@ -11,7 +11,7 @@ application = ProtocolTypeRouter({
             URLRouter(
                 [
                     #url(r"chat/", ChatConsumer, name='chat'),
-                    url(r"messages/(?P<username>[\w.@+-]+)/$", ChatConsumer, name='chat')
+                    url(r"(?P<username>[\w.@+-]+)", ChatConsumer),
                 ]
             )
         ),

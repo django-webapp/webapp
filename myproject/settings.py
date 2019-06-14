@@ -176,11 +176,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #djnago channels
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('locathost', 6379)],
+    "default": {
+        "CONFIG": {
+            "hosts": [('localhost', '6379')],
         },
-        'ROUTING': 'myproject.routing.channel_routing',
-    }
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+    },
 }

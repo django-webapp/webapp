@@ -3,8 +3,14 @@
 {% block content %}
     <br>
     <center>
-    <h2>welcome</h2>
-    <h4>{{ request.user }}</h4>
+    <h2>welcome -- {{ request.user }}</h2>
+    <br>
+    <h3>Logged Users List</h3>
+    {% for user in users %}
+        <ol>
+        <li>{{ user }}</li>
+        </ol>
+    {% endfor %}
     </center>
     <br>
 {% endblock %}

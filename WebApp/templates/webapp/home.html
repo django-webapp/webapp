@@ -5,11 +5,13 @@
     <center>
     <h2>welcome -- {{ request.user }}</h2>
     <br>
-    <h3>Logged Users List</h3>
+    <h2>{{ room_name }}</h2>
+            <h3> online users </h3>
+
     {% for user in users %}
-        <ol>
-        <li>{{ user }}</li>
-        </ol>
+        <ul>
+            <li>{{ user }}</li>
+        </ul>
     {% endfor %}
     </center>
     <br>
